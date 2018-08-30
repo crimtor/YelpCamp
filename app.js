@@ -21,16 +21,12 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
     
-const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/yelp_camp';
+const databaseUri = process.env.MONGODB_URI;
 
-// mongoose.connect(databaseUri, {useNewUrlParser: true})
-//       .then(() => console.log(`Database connected`))
-//       .catch(err => console.log(`Database connection error: ${err.message}`));
-      
-mongoose.connect('mongodb://steve:secretpassword80@ds137812.mlab.com:37812/crimtor_yelp_camp', {useNewUrlParser: true})
+mongoose.connect(databaseUri, {useNewUrlParser: true})
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
-
+      
 
 // App Configuration
 app.use(bodyParser.urlencoded({extended: true}));
